@@ -59,9 +59,6 @@ public class Oblig1 {
 
     ///// Oppgave 2 //////////////////////////////////////
     public static int antallUlikeSortert(int[] a) {
-        //if(a.length == 0){
-        //    antalVarden = 0;
-        //}
         int maxVarde = 0;
         int antalVarden = 0;
 
@@ -82,7 +79,21 @@ public class Oblig1 {
 
     ///// Oppgave 3 //////////////////////////////////////
     public static int antallUlikeUsortert(int[] a) {
-        throw new UnsupportedOperationException();
+        int maxVarde = 0;
+        int antalVarden = 0;
+
+        for(int i=0; i < a.length; ++i){
+            if(a.length == 0){
+                antalVarden = 0;
+            }
+            else{
+                if(a[i] != maxVarde){
+                    maxVarde = a[i];
+                    antalVarden++;
+                }
+            }
+        }
+        return antalVarden;
     }
 
     ///// Oppgave 4 //////////////////////////////////////
