@@ -14,7 +14,6 @@ public class Oblig1 {
         for(int i=1; i < a.length; ++i) {
             if (a[i] >= maxVarde) {
                 if (i == sistaIndex) {
-                    a[sistaIndex] = sistaVarde;
                     if (sistaVarde > maxVarde) {
                         maxVarde = sistaVarde;
                     }
@@ -28,11 +27,34 @@ public class Oblig1 {
                 a[i] = maxVarde;
             }
         }
-        return sistaVarde;
+        return a[sistaIndex];
     }
+    // Antal sammenligninger er:
 
     public static int ombyttinger(int[] a) {
-        throw new UnsupportedOperationException();
+        if (a.length < 1) throw new java.util.NoSuchElementException("a.length(" + a.length + ") < 1!");
+        int ombyte = 0;
+        int sistaIndex = a.length - 1;
+        int maxVarde = a[0];
+        int sistaVarde = a[sistaIndex];
+        for(int i=1; i < a.length; ++i) {
+            if (a[i] >= maxVarde) {
+                if (i == sistaIndex) {
+                    if (sistaVarde > maxVarde) {
+                        maxVarde = sistaVarde;
+                    }
+                }
+                else{
+                    maxVarde = a[i];
+                }
+            }
+            else{
+                a[i-1] = a[i];
+                a[i] = maxVarde;
+                ombyte++;
+            }
+        }
+        return ombyte;
     }
 
     ///// Oppgave 2 //////////////////////////////////////
