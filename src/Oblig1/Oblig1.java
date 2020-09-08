@@ -7,7 +7,19 @@ public class Oblig1 {
 
     ///// Oppgave 1 //////////////////////////////////////
     public static int maks(int[] a) {
-        throw new UnsupportedOperationException();
+        int sistaIndex = a.length - 1;
+        int maxVarde = a[0];
+        int sistaVarde = a[sistaIndex];
+        for(int i=1; i < a.length; i++){
+            if(a[i] >= maxVarde){
+                if (i == sistaIndex){
+                    a[sistaIndex] = sistaVarde;
+                    if (sistaVarde > maxVarde){
+                        return sistaVarde;
+                    }
+                }
+            }
+
     }
 
     public static int ombyttinger(int[] a) {
