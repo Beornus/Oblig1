@@ -59,7 +59,21 @@ public class Oblig1 {
 
     ///// Oppgave 2 //////////////////////////////////////
     public static int antallUlikeSortert(int[] a) {
-        throw new UnsupportedOperationException();
+        int antalVarden = 0;
+        //if(a.length == 0){
+        //    antalVarden = 0;
+        //}
+        int maxVarde = a[0];
+
+        for(int i=1; i < a.length; ++i){
+            if(a[i] < maxVarde) throw new IllegalStateException("Tabellen är inte stigande");
+            else{
+                if(a[i] > maxVarde){
+                    antalVarden++;
+                }
+            }
+        }
+        return antalVarden;
     }
 
     ///// Oppgave 3 //////////////////////////////////////
