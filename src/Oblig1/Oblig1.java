@@ -79,18 +79,21 @@ public class Oblig1 {
 
     ///// Oppgave 3 //////////////////////////////////////
     public static int antallUlikeUsortert(int[] a) {
-        int maxVarde = 0;
-        int antalVarden = 0;
+        if(a.length == 0){
+            return 0;
+        }
+        int antalVarden = 1;
 
-        for(int i=0; i < a.length; ++i){
-            if(a.length == 0){
-                antalVarden = 0;
-            }
-            else{
-                if(a[i] != maxVarde){
-                    maxVarde = a[i];
-                    antalVarden++;
+        for(int i=1; i < a.length; ++i){
+            boolean finnsTal = false;
+            for(int j = 0; j < i; ++j){
+                if (a[i] == a[j]){
+                    finnsTal = true;
+                    break;
                 }
+            }
+            if(!finnsTal){
+                antalVarden++;
             }
         }
         return antalVarden;
