@@ -30,7 +30,8 @@ public class Oblig1 {
         }
         return a[sistaIndex]; //Returnerar värdet på den sista indexen i tabellen.
     }
-    // Antal sammenligninger er:
+    // Antal sammenligninger i en tabell med n värden startar vi först med n-1 sammenligningen, nästa omgång blir det n-2 sammenligninger osv.
+    //Detta gör att vi kan använda oss av en generell benämning såsom n(n - 1)/2.
 
     public static int ombyttinger(int[] a) {
         if (a.length < 1) throw new java.util.NoSuchElementException("a.length(" + a.length + ") < 1!"); //Om tabellen är mindre än 1 element kastas ett avvik.
