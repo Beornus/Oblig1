@@ -81,24 +81,24 @@ public class Oblig1 {
 
     ///// Oppgave 3 //////////////////////////////////////
     public static int antallUlikeUsortert(int[] a) {
-        if(a.length == 0){
+        if(a.length == 0){ //Om tabellen är tom så returneras 0 då det är 0 värden i tabellen.
             return 0;
         }
-        int antalVarden = 1;
+        int antalVarden = 1; //Sätter vår preliminära räknare av värden till 1 då det är minst 1 värde om inte tabellen är tom.
 
-        for(int i=1; i < a.length; ++i){
-            boolean finnsTal = false;
-            for(int j = 0; j < i; ++j){
-                if (a[i] == a[j]){
+        for(int i=1; i < a.length; ++i){ //Går igenom hela tabellen med två for-lökker.
+            boolean finnsTal = false; //En variabel för att hålla reda på om vårt tal redan finns i vår jämförelse av tal.
+            for(int j = 0; j < i; ++j){ //Går igenom och jämför talen i "i" och "j" mot varandra för att undvika dubletter.
+                if (a[i] == a[j]){ //Om värdet i indexen i "i" är det samma som i indexen i "j" så sätter vi vår booleanvariabel till sann och hoppar ut av vår inre lökke.
                     finnsTal = true;
                     break;
                 }
             }
-            if(!finnsTal){
+            if(!finnsTal){ //När vi har gått igenom vår inre lökke så kollar vi om variabeln finnsTal är falsk. Om så så plussar vi på vår räknare och försätter med den yttre lökken.
                 antalVarden++;
             }
         }
-        return antalVarden;
+        return antalVarden; //Returnerar antal olika värden i tabellen.
     }
 
     ///// Oppgave 4 //////////////////////////////////////
