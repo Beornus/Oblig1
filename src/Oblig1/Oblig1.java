@@ -33,29 +33,30 @@ public class Oblig1 {
     // Antal sammenligninger er:
 
     public static int ombyttinger(int[] a) {
-        if (a.length < 1) throw new java.util.NoSuchElementException("a.length(" + a.length + ") < 1!");
-        int ombyte = 0;
-        int sistaIndex = a.length - 1;
-        int maxVarde = a[0];
-        int sistaVarde = a[sistaIndex];
-        for(int i=1; i < a.length; ++i) {
-            if (a[i] >= maxVarde) {
-                if (i == sistaIndex) {
-                    if (sistaVarde > maxVarde) {
+        if (a.length < 1) throw new java.util.NoSuchElementException("a.length(" + a.length + ") < 1!"); //Om tabellen är mindre än 1 element kastas ett avvik.
+        int ombyte = 0; //En räknare som ska hålla koll på hur många gånger vi byter om på två värden.
+        int sistaIndex = a.length - 1; //Den sista indexen i vår tabell.
+        int maxVarde = a[0]; //Vårt maxvärde som vi ska uppdatera och sortera längst bak.
+        int sistaVarde = a[sistaIndex]; //Värdet på indexen i tabellen.
+
+        for(int i=1; i < a.length; ++i) { //Går igenom tabellen för att sortera.
+            if (a[i] >= maxVarde) { //Samma som uppgiften ovan.
+                if (i == sistaIndex) { //Samma som uppgiften ovan.
+                    if (sistaVarde > maxVarde) { //Samma som uppgiften ovan.
                         maxVarde = sistaVarde;
                     }
                 }
-                else{
+                else{ //Samma som uppgift 1
                     maxVarde = a[i];
                 }
             }
-            else{
+            else{ //Samma som uppgift 1, men att vi här plussar på vår räknare som ska hålla koll på hur många ombyten vi gör i tabellen.
                 a[i-1] = a[i];
                 a[i] = maxVarde;
                 ombyte++;
             }
         }
-        return ombyte;
+        return ombyte; //Returnerar antal ombyten.
     }
 
     ///// Oppgave 2 //////////////////////////////////////
