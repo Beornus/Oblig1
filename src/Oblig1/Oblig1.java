@@ -1,3 +1,5 @@
+//s344080 Björn Pettersson
+
 package Oblig1;
 
 import java.lang.UnsupportedOperationException;
@@ -110,11 +112,34 @@ public class Oblig1 {
 
     ///// Oppgave 4 //////////////////////////////////////
     public static void delsortering(int[] a) {
+        int baraJamna = 0;
         for(int i=0; i<a.length;++i){
             if(a.length < 0){
                 a = new int[0];
+                break;
             }
+            if(a[i]%2 == 0) baraJamna++;
         }
+        /*if(baraJamna == a.length){
+            int sistaIndex = a.length - 1;
+            int maxVarde = a[0];
+            int sistaVarde = a[sistaIndex];
+
+            for(int i=1; i < a.length; ++i) {
+                if (a[i] >= maxVarde) {
+                    if (i == sistaIndex) {
+                        if (sistaVarde > maxVarde) {
+                            maxVarde = sistaVarde;
+                        }
+                    } else {
+                        maxVarde = a[i];
+                    }
+                } else {
+                    a[i - 1] = a[i];
+                    a[i] = maxVarde;
+                }
+            }
+        }*/
         int vanster = 0;
         int hoger = a.length -1;
 
