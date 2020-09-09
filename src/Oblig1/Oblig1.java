@@ -7,27 +7,28 @@ public class Oblig1 {
 
     ///// Oppgave 1 //////////////////////////////////////
     public static int maks(int[] a) {
-        if (a.length < 1) throw new java.util.NoSuchElementException("a.length(" + a.length + ") < 1!");
-        int sistaIndex = a.length - 1;
-        int maxVarde = a[0];
-        int sistaVarde = a[sistaIndex];
-        for(int i=1; i < a.length; ++i) {
-            if (a[i] >= maxVarde) {
-                if (i == sistaIndex) {
-                    if (sistaVarde > maxVarde) {
+        if (a.length < 1) throw new java.util.NoSuchElementException("a.length(" + a.length + ") < 1!"); //Om tabellen har mindre än ett element så kastas ett avvik.
+        int sistaIndex = a.length - 1; //Indexen på det sista elementet i tabellen är hela längden - 1.
+        int maxVarde = a[0]; //Startar med ett maxvärde på index nummer 0 i tabellen.
+        int sistaVarde = a[sistaIndex]; //Det sista värdet i tabellen ligger på den sista indexen.
+
+        for(int i=1; i < a.length; ++i) { //Går igenom hela tabellen med en lökke.
+            if (a[i] >= maxVarde) { //Om värdet på den indexen vi är på just nu i lökken är större eller samma som vårt maxvärde går vi in i den här if:en.
+                if (i == sistaIndex) { //Om i är i slutet av tabellen, dvs på den sista indexen så går vi in i den här if:en.
+                    if (sistaVarde > maxVarde) { //Om värdet som ligger i den sista indexen är större än vårt nuvarande maxvärde så sätter vi maxvärdet till detta värde.
                         maxVarde = sistaVarde;
                     }
                 }
-                else{
+                else{ // Om det inte är den sista indexen så sätter vi maxvärdet till värdet i den nuvarande indexen.
                     maxVarde = a[i];
                 }
             }
-            else{
+            else{ // Om värdet i den nuvarande indexen är mindre än vårt nuvarande maxvärde så sorterar vi så att det byter plats med vårt nuvarande maxvärde i tabellen.
                 a[i-1] = a[i];
                 a[i] = maxVarde;
             }
         }
-        return a[sistaIndex];
+        return a[sistaIndex]; //Returnerar värdet på den sista indexen i tabellen.
     }
     // Antal sammenligninger er:
 
