@@ -40,17 +40,17 @@ public class Oblig1 {
         int sistaVarde = a[sistaIndex]; //Värdet på indexen i tabellen.
 
         for(int i=1; i < a.length; ++i) { //Går igenom tabellen för att sortera.
-            if (a[i] >= maxVarde) { //Samma som uppgiften ovan.
-                if (i == sistaIndex) { //Samma som uppgiften ovan.
-                    if (sistaVarde > maxVarde) { //Samma som uppgiften ovan.
+            if (a[i] >= maxVarde) { //Samma som innan i uppgiften.
+                if (i == sistaIndex) { //Samma som innan i uppgiften.
+                    if (sistaVarde > maxVarde) { //Samma som innan i uppgiften.
                         maxVarde = sistaVarde;
                     }
                 }
-                else{ //Samma som uppgift 1
+                else{ //Samma som innan i uppgiften
                     maxVarde = a[i];
                 }
             }
-            else{ //Samma som uppgift 1, men att vi här plussar på vår räknare som ska hålla koll på hur många ombyten vi gör i tabellen.
+            else{ //Samma som innan i uppgiften, men att vi här plussar på vår räknare som ska hålla koll på hur många ombyten vi gör i tabellen.
                 a[i-1] = a[i];
                 a[i] = maxVarde;
                 ombyte++;
@@ -61,22 +61,22 @@ public class Oblig1 {
 
     ///// Oppgave 2 //////////////////////////////////////
     public static int antallUlikeSortert(int[] a) {
-        int maxVarde = 0;
-        int antalVarden = 0;
+        int maxVarde = 0; //Sätter ett preliminärt maxvärde.
+        int antalVarden = 0; //En räknare som ska räkna hur många olika värden det är i vår tabell.
 
-        for(int i=0; i < a.length; ++i){
-            if(a.length == 0){
+        for(int i=0; i < a.length; ++i){ //Går igenom hela tabellen.
+            if(a.length == 0){ //Om vår tabell har 0 element så returnerar räknaren att det är 0 värden i tabellen.
                 antalVarden = 0;
             }
-            else if (a[i] < maxVarde) throw new IllegalStateException("Tabellen är inte stigande");
-            else{
+            else if (a[i] < maxVarde) throw new IllegalStateException("Tabellen är inte stigande"); //Om talen i tabellen inte är sorterade i stigande ordning så kastas en exception.
+            else{ //Om tabellen är sorterad i stigande ordning så ökas maxvärdet efter varje iteration och räknaren uppdateras.
                 if(a[i] > maxVarde){
                     maxVarde = a[i];
                     antalVarden++;
                 }
             }
         }
-        return antalVarden;
+        return antalVarden; //Returnerar antal olika värden i tabellen.
     }
 
     ///// Oppgave 3 //////////////////////////////////////
