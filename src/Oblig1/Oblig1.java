@@ -153,43 +153,6 @@ public class Oblig1 {
             }
         }
         hoger = a.length-1; //Nu ska alla udda tal ligga först i tabellen.
-
-        /*
-        int left = 0;
-        int right = a.length -1;
-
-        while (left < right){
-            while (a[left]%2 == 0 && left < right)
-                left++;
-            while (a[right]%2 == 1 && left < right)
-                right--;
-            if (left < right) {
-                int temp = a[left];
-                a[left] = a[right];
-                a[right] = temp;
-                left++;
-                right--;
-            }
-        }*/
-        /*int countEven = 0;
-        for (int i = 0; i < a.length; i++) {
-            if (a[i]%2 == 0){
-                countEven++;
-            }
-        }
-        int i = 0;
-        int j = i+1;
-        while (i != countEven){
-            if (a[i]%2 == 0){
-                i++;
-                j = i + 1;
-            }else if (a[i]%2 == 1 && j < a.length){
-                int temp = a[i];
-                a[i] = a[j];
-                a[j] = temp;
-                j++;
-            }
-        }*/
     }
 
     ///// Oppgave 5 //////////////////////////////////////
