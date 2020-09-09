@@ -112,16 +112,18 @@ public class Oblig1 {
 
     ///// Oppgave 4 //////////////////////////////////////
     public static void delsortering(int[] a) {
-        int baraJamna = 0;
-        for(int i=0; i<a.length;++i){
-            if(a.length < 0){
+        int baraJamna = 0; //En räknare som kollar hur många jämna tal det är i tabellen.
+        int baraUdda = 0; // En räknare som kollar hur många udda tal det är i tabellen.
+        for(int i=0; i<a.length; ++i){
+            /*if(a.length < 0){  //Försöker lösa hur man ska acceptera ett tomt array utan att få ett exception.
                 a = new int[0];
                 break;
-            }
-            if(a[i]%2 == 0) baraJamna++;
+            }*/
+            if(a[i]%2 == 0) baraJamna++; // Om talet i nuvarande index är jämnt, dvs delbart med 2 så plussas räknaren.
+            if(a[i]%2 == 1) baraUdda++; // Om talet inte kan delas med två så plussar räknaren för udda tal.
         }
-        /*if(baraJamna == a.length){
-            int sistaIndex = a.length - 1;
+        if(baraJamna == a.length || baraUdda == a.length){ //Här vill jag att om längden på baraJamna eller baraUdda är lika, så ska dessa talen sorteras för sig.
+            int sistaIndex = a.length - 1;  //Den fungerar inte helt som jag vill så kommer tillbaka hit.
             int maxVarde = a[0];
             int sistaVarde = a[sistaIndex];
 
@@ -139,20 +141,20 @@ public class Oblig1 {
                     a[i] = maxVarde;
                 }
             }
-        }*/
-        int vanster = 0;
-        int hoger = a.length -1;
+        }
+        int vanster = 0; //Här startar jag att sätta ett vänstervärde på 0.
+        int hoger = a.length -1; //Sätter högervärde att vara längden på tabellen -1.
 
-        while (vanster <= hoger) {
-            if (a[vanster]%2 == 0) vanster++;
-            else {
-                int temp = a[vanster];
+        while (vanster <= hoger) { //Så länge vänster är mindre eller lik höger så går vi in i den här lökken.
+            if (a[vanster]%2 == 0) vanster++; //Om värdet av indexen till vänster är ett jämnt tal så plussas vänsterräknaren med 1.
+            else { // Om inte så går vi in och sätter ett temporärt värde till a[vanster], flyttar högervärdet från längst bort till vänstervärdet, sen sätter
+                int temp = a[vanster]; //högervärdet till vårt temporära värde och sen räknar ner högersidan med minus.
                 a[vanster] = a[hoger];
                 a[hoger] = temp;
                 hoger--;
             }
         }
-        hoger = a.length-1; //Nu ska alla udda tal ligga först i tabellen.
+        //hoger = a.length-1; //Nu ska alla udda tal ligga först i tabellen.
     }
 
     ///// Oppgave 5 //////////////////////////////////////
