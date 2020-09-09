@@ -110,7 +110,24 @@ public class Oblig1 {
 
     ///// Oppgave 4 //////////////////////////////////////
     public static void delsortering(int[] a) {
+        for(int i=0; i<a.length;++i){
+            if(a.length < 0){
+                a = new int[0];
+            }
+        }
+        int vanster = 0;
+        int hoger = a.length -1;
 
+        while (vanster <= hoger) {
+            if (a[vanster]%2 == 0) vanster++;
+            else {
+                int temp = a[vanster];
+                a[vanster] = a[hoger];
+                a[hoger] = temp;
+                hoger--;
+            }
+        }
+        hoger = a.length-1; //Nu ska alla udda tal ligga först i tabellen.
 
         /*
         int left = 0;
