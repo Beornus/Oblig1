@@ -59,6 +59,12 @@ public class Oblig1 {
         return ombyte; //Returnerar antal ombyten.
     }
 
+    // Det blir flest ombyttinger når en permutation från talet 1 till n har talen från högst till lägst i motsatt ordning. Skrivs generellt som n(n − 1)/2.
+    //Det blir minst ombytningar när alla talen i permutasjonen ligger i stigande ordning, dvs 0.
+    //Genomsnittet av ombytningar räknas mellan de två ytterpunkterna. Antingen så har vi 0 ombytningar eller så har vi n(n - 1)/2.
+    //Om vi tar en random ombytning av alla möjliga kombinationer och kallar den för x, så kommer den motsatta ombytningen ha alla ombytningar x inte har.
+    //Detta blir n(n - 1)/2 - x. Detta gör att de två motsatta kombinationerna ger genomsnittet n(n - 1)/4. Detta är resultatet på alla random ombytningar.
+
     ///// Oppgave 2 //////////////////////////////////////
     public static int antallUlikeSortert(int[] a) {
         int maxVarde = 0; //Sätter ett preliminärt maxvärde.
@@ -103,7 +109,44 @@ public class Oblig1 {
 
     ///// Oppgave 4 //////////////////////////////////////
     public static void delsortering(int[] a) {
-        throw new UnsupportedOperationException();
+
+
+        /*
+        int left = 0;
+        int right = a.length -1;
+
+        while (left < right){
+            while (a[left]%2 == 0 && left < right)
+                left++;
+            while (a[right]%2 == 1 && left < right)
+                right--;
+            if (left < right) {
+                int temp = a[left];
+                a[left] = a[right];
+                a[right] = temp;
+                left++;
+                right--;
+            }
+        }*/
+        /*int countEven = 0;
+        for (int i = 0; i < a.length; i++) {
+            if (a[i]%2 == 0){
+                countEven++;
+            }
+        }
+        int i = 0;
+        int j = i+1;
+        while (i != countEven){
+            if (a[i]%2 == 0){
+                i++;
+                j = i + 1;
+            }else if (a[i]%2 == 1 && j < a.length){
+                int temp = a[i];
+                a[i] = a[j];
+                a[j] = temp;
+                j++;
+            }
+        }*/
     }
 
     ///// Oppgave 5 //////////////////////////////////////
