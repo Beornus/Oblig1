@@ -3,6 +3,7 @@
 package Oblig1;
 
 import java.lang.UnsupportedOperationException;
+import java.util.Arrays;
 
 public class Oblig1 {
     private Oblig1() {}
@@ -116,49 +117,27 @@ public class Oblig1 {
             if(a.length != 1){
                 int vanster = 0; //Här startar jag att sätta ett vänstervärde på 0.
                 int hoger = a.length -1; //Sätter högervärde att vara längden på tabellen -1.
-                int baraUdda = 0;
 
-                while (vanster <= hoger) { //Så länge vänster är mindre eller lik höger så går vi in i den här lökken.
-                    while (a[vanster]%2 == 1 && vanster <= hoger){ //Så länge värdet av index vänster är udda och vänster är mindre eller lik höger
-                        vanster++; //plussa på vänster
+                while (vanster < hoger) { //Så länge vänster är mindre än höger så går vi in i den här lökken.
+                    while (a[vanster]%2 == 1 && vanster < hoger){ //Så länge värdet av index vänster är udda och vänster är mindre än höger
+                        vanster++; //plussa på vänster och gå vidare i tabellen.
                     }
-                    while (a[hoger]%2 == 0 && vanster <= hoger){ //Så länge värdet av index är jämnt och vänster är mindre än höger
-                        hoger--;
-                    }
-                    int temp = a[vanster]; //Sätt ett temporärt värde till index vänster
-                    a[vanster] = a[hoger]; //Sätt vänstervärdet till högervärdet
-                    a[hoger] = temp; //Sätt högervärdet till temporärvärdet.
-                    vanster++; //plussa på vänster
-                    hoger--; //ta minus på höger
-
-                    //while udda och vänster mindre än höger
-                    //while jämna och vänster mindra än höger
-                    //när whilelökkerna är färdiga gå in och byt plats på de.
-            /*if (a[vanster] % 2 == 1) {
-                vanster++; //Om värdet av indexen till vänster är ett udda tal så plussas vänsterräknaren med 1.
-            } else { // Om inte så går vi in och sätter ett temporärt värde till a[vanster], flyttar högervärdet från längst bort till vänstervärdet, sen sätter
-                int temp = a[vanster]; //högervärdet till vårt temporära värde och sen räknar ner högersidan med minus.
-                a[vanster] = a[hoger];
-                a[hoger] = temp;
-                //vanster++;
-                hoger--;
-            }*/
-                }
-                //Se på arraysSort hur den fungerar för att sorterar.
-                for(int j = 0; j<a.length; ++j){
-                    if(a[j]%2 == 1 && a[j] > a[j+1]){
-                        int temp = a[j];
-                        a[j] = a[j+1];
-                        a[j+1] = temp;
-                        break;
-                    }
-                    else if(a[j]%2 == 0 && a[j] < a[j+1]){
-                        int temp = a[j];
-                        a[j] = a[j+1];
-                        a[j+1] = temp;
-                        break;
+                    while (a[vanster]%2 == 0 && vanster < hoger){ //Så länge värdet av index är jämnt och vänster är mindre än höger
+                        int temp = a[vanster]; //Sätt ett temporärt värde till index vänster
+                        a[vanster] = a[hoger]; //Sätt vänstervärdet till högervärdet
+                        a[hoger] = temp; //Sätt högervärdet till temporärvärdet.
+                        hoger--; //ta minus på höger för att där har vi nu ett jämnt värde.
                     }
                 }
+                int baraUdda = 0; //Räkna hur många udda tal
+                for(int element : a){
+                    if(element % 2 == 1){
+                        baraUdda++;
+                    }
+                }
+                Arrays.sort(a, 0, baraUdda);
+                Arrays.sort(a, baraUdda, a.length);
+                //Blev tipsad om Arrays.sort(), ska gå in djupare på om jag kan skriva det själv.
             }
         }
     }
