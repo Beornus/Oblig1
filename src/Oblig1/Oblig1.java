@@ -119,7 +119,7 @@ public class Oblig1 {
                 int hoger = a.length -1; //Sätter högervärde att vara längden på tabellen -1.
 
                 while (vanster < hoger) { //Så länge vänster är mindre än höger så går vi in i den här lökken.
-                    while (a[vanster]%2 == 1 && vanster < hoger){ //Så länge värdet av index vänster är udda och vänster är mindre än höger
+                    while (a[vanster]%2 != 0 && vanster < hoger){ //Så länge värdet av index vänster är udda och vänster är mindre än höger
                         vanster++; //plussa på vänster och gå vidare i tabellen.
                     }
                     while (a[vanster]%2 == 0 && vanster < hoger){ //Så länge värdet av index är jämnt och vänster är mindre än höger
@@ -131,7 +131,7 @@ public class Oblig1 {
                 }
                 int baraUdda = 0; //Räkna hur många udda tal
                 for(int element : a){
-                    if(element % 2 == 1){
+                    if(element % 2 != 0){
                         baraUdda++;
                     }
                 }
