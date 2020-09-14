@@ -162,26 +162,26 @@ public class Oblig1 {
     ///// Oppgave 7 //////////////////////////////////////
     /// 7a)
     public static String flett(String s, String t) {
-        if(s.isEmpty() && t.isEmpty()){
+        if(s.isEmpty() && t.isEmpty()){ //Om strängarna är tomma så returneras en tom sträng.
             return "";
         }
-        if(s.isEmpty()){
+        if(s.isEmpty()){ //Om strängen s är tom så returneras bara t-strängen.
             return t;
         }
-        StringBuilder komboString = new StringBuilder();
+        StringBuilder komboString = new StringBuilder(); //Skapa en ny StringBuilder för att kunna göra ändringar i strängarna.
         int i;
-        for(i = 0; i < s.length(); ++i){
-            komboString.append(s.charAt(i));
-            if(i<t.length()){
-                komboString.append(t.charAt(i));
-            }
-            if(i<t.length()){
-                for(i = 0; i< t.length(); ++i){
-                    komboString.append(t.charAt(i));
-                }
+        for(i = 0; i < s.length(); ++i){ //Går igenom hela s-strängen
+            komboString.append(s.charAt(i)); //Lägg till karaktären i index i i vår ny StringBuilder. (Här får jag en fel.)
+            if(i<t.length()){ //Om i är mindre än längden på t-strängen går vi in här.
+                komboString.append(t.charAt(i)); //Lägg till karaktären i index i från sträng t i vår nya StringBuilder.
             }
         }
-        return komboString.toString();
+        if(i<t.length()){ //Kollar om längden på t-strängen är längre än i. Isåfall går den in och lägger till de återstående karaktärerna i StringBuildern.
+            for(i = 0; i< t.length(); ++i){
+                komboString.append(t.charAt(i));
+            }
+        }
+        return komboString.toString(); //Returnerar toString av vår StringBuilder
     }
 
     /// 7b)
