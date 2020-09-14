@@ -145,11 +145,11 @@ public class Oblig1 {
     public static void rotasjon(char[] a) {
         if(a.length != 0){ //Om längden på tabellen inte är 0 så går vi in här.
             if(a.length != 1){ //Om längden på tabellen inte är 1 så går vi in här. Om det bara är ett element så kan det inte rotera.
-                char tempVarde = a[a.length -1]; //Sätter en temporär variabel till värdet som är på det sista indexen.
-                for(int i = a.length -1; i> 0; --i){ //Går igenom hela tabellen bakifrån för att byta ut värdena ett hack.
+                char tempVarde = a[a.length-1]; //Sätter en temporär variabel till värdet som är på det sista indexen.
+                for(int i = a.length -1; i> 0; i--){ //Går igenom hela tabellen bakifrån för att byta ut värdena ett hack.
                     a[i] = a[i-1];
-                    a[0] = tempVarde;
                 }
+                a[0] = tempVarde; //Sätter den första indexen till att vara vårt temporära värde.
             }
         }
     }
@@ -162,7 +162,26 @@ public class Oblig1 {
     ///// Oppgave 7 //////////////////////////////////////
     /// 7a)
     public static String flett(String s, String t) {
-        throw new UnsupportedOperationException();
+        if(s.isEmpty() && t.isEmpty()){
+            return "";
+        }
+        if(s.isEmpty()){
+            return t;
+        }
+        StringBuilder komboString = new StringBuilder();
+        int i;
+        for(i = 0; i < s.length(); ++i){
+            komboString.append(s.charAt(i));
+            if(i<t.length()){
+                komboString.append(t.charAt(i));
+            }
+            if(i<t.length()){
+                for(i = 0; i< t.length(); ++i){
+                    komboString.append(t.charAt(i));
+                }
+            }
+        }
+        return komboString.toString();
     }
 
     /// 7b)
