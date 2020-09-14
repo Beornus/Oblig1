@@ -113,8 +113,8 @@ public class Oblig1 {
 
     ///// Oppgave 4 //////////////////////////////////////
     public static void delsortering(int[] a) {
-        if(a.length != 0){
-            if(a.length != 1){
+        if(a.length != 0){ //Om tabellen inta har 0 elementer så går vi in här.
+            if(a.length != 1){ //Om tabellen inte har bara 1 element så går vi in här.
                 int vanster = 0; //Här startar jag att sätta ett vänstervärde på 0.
                 int hoger = a.length -1; //Sätter högervärde att vara längden på tabellen -1.
 
@@ -129,22 +129,29 @@ public class Oblig1 {
                         hoger--; //ta minus på höger för att där har vi nu ett jämnt värde.
                     }
                 }
-                int baraUdda = 0; //Räkna hur många udda tal
-                for(int element : a){
+                int baraUdda = 0; //Räknare på hur många udda tal det är i tabellen.
+                for(int element : a){ //Går igenom hela tabellen. För varje udda tal så ökas räknaren med en.
                     if(element % 2 != 0){
                         baraUdda++;
                     }
                 }
-                Arrays.sort(a, 0, baraUdda);
-                Arrays.sort(a, baraUdda, a.length);
-                //Blev tipsad om Arrays.sort(), ska gå in djupare på om jag kan skriva det själv.
+                Arrays.sort(a, 0, baraUdda); //Sorterar tabellen från index 0 till antalet udda tal.
+                Arrays.sort(a, baraUdda, a.length); //Sorterar de jämna talen i tabellen.
             }
         }
     }
 
     ///// Oppgave 5 //////////////////////////////////////
     public static void rotasjon(char[] a) {
-        throw new UnsupportedOperationException();
+        if(a.length != 0){ //Om längden på tabellen inte är 0 så går vi in här.
+            if(a.length != 1){ //Om längden på tabellen inte är 1 så går vi in här. Om det bara är ett element så kan det inte rotera.
+                char tempVarde = a[a.length -1]; //Sätter en temporär variabel till värdet som är på det sista indexen.
+                for(int i = a.length -1; i> 0; --i){ //Går igenom hela tabellen bakifrån för att byta ut värdena ett hack.
+                    a[i] = a[i-1];
+                    a[0] = tempVarde;
+                }
+            }
+        }
     }
 
     ///// Oppgave 6 //////////////////////////////////////
