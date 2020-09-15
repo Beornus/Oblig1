@@ -192,22 +192,20 @@ public class Oblig1 {
 
     /// 7b)
     public static String flett(String... s) {
-        StringBuilder komboString = new StringBuilder();
-        String resultat = "";
+        char hittaBokstav; //En variabel för att hitta den bokstav vi behöver i varje sträng.
+        String resultat = ""; //En tom sträng där vi kan lagra de bokstaverna vi hittar.
 
-        for(int i=0; i<s.length; ++i){
-            char[] blabla = s[i].toCharArray();
-            for(int j=0; j<i; j++){ //Här ska lökken lägga till den första bokstaven i varje sträng i vår StringBuilder
-                resultat += (s[j].charAt(i)); //Här vill jag att min resultatvariabel ska lägga till
+        for(int i=0; i<s.length; ++i){ //En lökke som vi går igenom för att få tag i alla kommande bokstäver som återstår i strängarna i tabellen. Hoppar ut när det inte är några bokstäver kvar.
+            for(int j=0; j<s.length; j++){ //En lökke där vi går in i den aktuella strängen vi är inne i för att hitta karaktärer. Hoppar ut när vi har gått igenom hela tabellen en gång.
+                if(s[j].equals("")){ //Om strängen är tom så gör vi ingenting.
+                }
+                else {
+                    hittaBokstav = s[j].charAt(i); //Hittar den nya bokstaven vi ska använda.
+                    resultat = resultat + hittaBokstav; //Sätter vår resultatsträng till att lägga till den nya bokstaven.
+                }
             }
-
-            /*char[] blabla = element.toCharArray(); //Skapar ett array av karaktärer av varje sträng i s.
-            for(i = 0; i< s.length; ++i){ //För varje
-                komboString.append()
-            }*/
         }
-
-        return resultat;
+        return resultat; //Returnerar textsträngen vi vill åt.
     }
 
     ///// Oppgave 8 //////////////////////////////////////
