@@ -168,17 +168,23 @@ public class Oblig1 {
         if(s.isEmpty()){ //Om strängen s är tom så returneras bara t-strängen.
             return t;
         }
+        if(t.isEmpty()){ //Om strängen t är tom så returneras bara s-strängen.
+            return s;
+        }
+        char [] str1 = s.toCharArray(); //Gör om strängen s till ett char-array.
+        char [] str2 = t.toCharArray(); //Gör om strängen t till ett char-array.
+
         StringBuilder komboString = new StringBuilder(); //Skapa en ny StringBuilder för att kunna göra ändringar i strängarna.
         int i;
-        for(i = 0; i < s.length(); ++i){ //Går igenom hela s-strängen
-            komboString.append(s.charAt(i)); //Lägg till karaktären i index i i vår ny StringBuilder. (Här får jag en fel.)
-            if(i<t.length()){ //Om i är mindre än längden på t-strängen går vi in här.
-                komboString.append(t.charAt(i)); //Lägg till karaktären i index i från sträng t i vår nya StringBuilder.
+        for(i = 0; i < str1.length; ++i){ //Går igenom hela arrayet vi har gjort av s-strängen.
+            komboString.append(str1[i]); //Lägg till karaktären i index i i vår ny StringBuilder.
+            if(i<str2.length){ //Om i är mindre än längden på char array str2 går vi in här.
+                komboString.append(str2[i]); //Lägg till karaktären i index i från str2 i vår nya StringBuilder.
             }
         }
-        if(i<t.length()){ //Kollar om längden på t-strängen är längre än i. Isåfall går den in och lägger till de återstående karaktärerna i StringBuildern.
-            for(i = 0; i< t.length(); ++i){
-                komboString.append(t.charAt(i));
+        if(i<str2.length){ //Kollar om längden på str2 är längre än i. Isåfall går den in och lägger till de återstående karaktärerna i StringBuildern.
+            for(i = str1.length; i < str2.length; ++i){
+                komboString.append(str2[i]);
             }
         }
         return komboString.toString(); //Returnerar toString av vår StringBuilder
@@ -186,7 +192,10 @@ public class Oblig1 {
 
     /// 7b)
     public static String flett(String... s) {
-        throw new UnsupportedOperationException();
+        StringBuilder komboString = new StringBuilder();
+        int i;
+
+        return komboString.toString();
     }
 
     ///// Oppgave 8 //////////////////////////////////////
