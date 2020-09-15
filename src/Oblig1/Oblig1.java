@@ -193,9 +193,21 @@ public class Oblig1 {
     /// 7b)
     public static String flett(String... s) {
         StringBuilder komboString = new StringBuilder();
-        int i;
+        String resultat = "";
 
-        return komboString.toString();
+        for(int i=0; i<s.length; ++i){
+            char[] blabla = s[i].toCharArray();
+            for(int j=0; j<i; j++){ //Här ska lökken lägga till den första bokstaven i varje sträng i vår StringBuilder
+                resultat += (s[j].charAt(i)); //Här vill jag att min resultatvariabel ska lägga till
+            }
+
+            /*char[] blabla = element.toCharArray(); //Skapar ett array av karaktärer av varje sträng i s.
+            for(i = 0; i< s.length; ++i){ //För varje
+                komboString.append()
+            }*/
+        }
+
+        return resultat;
     }
 
     ///// Oppgave 8 //////////////////////////////////////
