@@ -182,7 +182,7 @@ public class Oblig1 {
                 komboString.append(str2[i]); //Lägg till karaktären i index i från str2 i vår nya StringBuilder.
             }
         }
-        if(i<str2.length){ //Kollar om längden på str2 är längre än i. Isåfall går den in och lägger till de återstående karaktärerna i StringBuildern.
+        if(i<str2.length){ //Kollar om längden på str2 är längre än i. Isåfall går den in och lägger till de återstående karaktärerna i StringBuilder.
             for(i = str1.length; i < str2.length; ++i){
                 komboString.append(str2[i]);
             }
