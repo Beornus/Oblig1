@@ -154,10 +154,10 @@ public class Oblig1 {
         }
     }
 
-    ///// Oppgave 6 //////////////////////////////////////
+    /*///// Oppgave 6 //////////////////////////////////////
     public static void rotasjon(char[] a, int k) {
         throw new UnsupportedOperationException();
-    }
+    }*/
 
     ///// Oppgave 7 //////////////////////////////////////
     /// 7a)
@@ -194,12 +194,16 @@ public class Oblig1 {
     public static String flett(String... s) {
         char hittaBokstav; //En variabel för att hitta den bokstav vi behöver i varje sträng.
         String resultat = ""; //En tom sträng där vi kan lagra de bokstaverna vi hittar.
+        int antalBokstaver = 0; //En räknare för att hålla koll på hur många bokstäver det är totalt i s.
+        for(String element : s){ //Går igenom alla element i tabellen s
+            for(int m =0; m < element.length(); m++){ //För varje ny bokstav så ökas räknaren.
+                antalBokstaver++;
+            }
+        }
 
-        for(int i=0; i<s.length; ++i){ //En lökke som vi går igenom för att få tag i alla kommande bokstäver som återstår i strängarna i tabellen. Hoppar ut när det inte är några bokstäver kvar.
+        for(int i=0; i<antalBokstaver; ++i){ //En lökke som vi går igenom för att få tag i alla kommande bokstäver som återstår i strängarna i tabellen. Hoppar ut när det inte är några bokstäver kvar.
             for(int j=0; j<s.length; j++){ //En lökke där vi går in i den aktuella strängen vi är inne i för att hitta karaktärer. Hoppar ut när vi har gått igenom hela tabellen en gång.
-                if(s[j].equals("")){ //Om strängen är tom så gör vi ingenting.
-                }
-                else {
+                if(!s[j].equals("") && s[j].length() > i){ //Om den aktuella strängen inte är tom eller har en längd som är större än vårt nuvarande i-värde så går vi in här.
                     hittaBokstav = s[j].charAt(i); //Hittar den nya bokstaven vi ska använda.
                     resultat = resultat + hittaBokstav; //Sätter vår resultatsträng till att lägga till den nya bokstaven.
                 }
@@ -208,7 +212,7 @@ public class Oblig1 {
         return resultat; //Returnerar textsträngen vi vill åt.
     }
 
-    ///// Oppgave 8 //////////////////////////////////////
+    /*///// Oppgave 8 //////////////////////////////////////
     public static int[] indekssortering(int[] a) {
         throw new UnsupportedOperationException();
     }
@@ -225,6 +229,6 @@ public class Oblig1 {
 
     public static boolean inneholdt(String a, String b) {
         throw new UnsupportedOperationException();
-    }
+    }*/
 
 }  // Oblig1
